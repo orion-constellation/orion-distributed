@@ -1,0 +1,81 @@
+version: '3.7'
+
+services:
+  redpanda:
+    image: vectorized/redpanda
+    container_name: redpanda
+    ports:
+      - "9092:9092"
+      - "9644:9644"
+    command:
+      - redpanda
+      - start
+      - --smp
+      - "1"
+      - --memory
+      - "1G"
+      - --reserve-memory
+      - "0M"
+      - --overprovisioned
+      - --node-id
+      - "0"
+      - --check=false
+    volumes:
+      - redpanda_data:/var/lib/redpanda/data
+
+  producer1:
+    image: threat-node
+    container_name: producer1
+    depends_on:
+      - redpanda
+    environment:
+      - NODE_ID=producer1
+    command: ["python", "producer.py"]
+
+  producer2:
+    image: threat-node
+    container_name: producer2
+    depends_on:
+      - redpanda
+    environment:
+      - NODE_ID=producer2
+    command: ["python", "producer.py"]
+
+  transformer:
+    image: threat-node
+    container_name: transformer
+    depends_on:
+      - redpanda
+    environment:
+      - NODE_ID=transformer
+    command: ["python", "transformer.py"]
+
+  loader:
+    image: threat-node
+    container_name: loader
+    depends_on:
+      - redpanda
+    environment:
+      - NODE_ID=loader
+    command: ["python", "loader.py"]
+
+  consumer1:
+    image: threat-node
+    container_name: consumer1
+    depends_on:
+      - redpanda
+    environment:
+      - NODE_ID=consumer1
+    command: ["python", "consumer.py"]
+
+  consumer2:
+    image: threat-node
+    container_name: consumer2
+    depends_on:
+      - redpanda
+    environment:
+      - NODE_ID=consumer2
+    command: ["python", "consumer.py"]
+
+volumes:
+  redpanda_data:

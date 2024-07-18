@@ -1,0 +1,40 @@
+{
+    "ecs": {
+      "version": "1.12.0"
+    },
+    "event": {
+      "category": "blockchain",
+      "kind": "event",
+      "type": ["transaction", "contract_event"],
+      "action": "contract_execution"
+    },
+    "blockchain": {
+      "type": "NEAR",
+      "transaction": {
+        "id": "tx123456789",
+        "hash": "abc123def456",
+        "from": "user1",
+        "to": "reward_contract",
+        "amount": 100
+      },
+      "smart_contract": {
+        "name": "reward_contract",
+        "method": "distribute_rewards",
+        "parameters": {
+          "user_id": "user1",
+          "reward_amount": 100
+        }
+      }
+    },
+    "host": {
+      "hostname": "near-node-01",
+      "ip": "192.168.1.106",
+      "os": {
+        "name": "Ubuntu",
+        "version": "20.04"
+      }
+    },
+    "message": "NEAR smart contract executed",
+    "@timestamp": "2024-07-18T12:34:56.789Z"
+  }
+  

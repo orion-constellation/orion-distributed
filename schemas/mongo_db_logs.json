@@ -1,0 +1,31 @@
+{
+    "ecs": {
+      "version": "1.12.0"
+    },
+    "event": {
+      "category": "database",
+      "kind": "event",
+      "type": ["query", "update", "insert", "delete"],
+      "action": "insert"
+    },
+    "database": {
+      "type": "mongodb",
+      "name": "threat_data",
+      "query": "INSERT INTO threat_data (id, data) VALUES (1, 'sample data')"
+    },
+    "host": {
+      "hostname": "mongodb-host-01",
+      "ip": "192.168.1.104",
+      "os": {
+        "name": "Ubuntu",
+        "version": "20.04"
+      }
+    },
+    "source": {
+      "ip": "192.168.1.105",
+      "port": 27017
+    },
+    "message": "MongoDB insert operation",
+    "@timestamp": "2024-07-18T12:34:56.789Z"
+  }
+  

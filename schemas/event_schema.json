@@ -1,0 +1,32 @@
+{
+    "ecs": {
+      "version": "1.12.0"
+    },
+    "event": {
+      "category": "system",
+      "kind": "event",
+      "type": ["info", "error"],
+      "outcome": ["success", "failure"],
+      "module": "redpanda",
+      "action": "data_ingestion"
+    },
+    "host": {
+      "hostname": "redpanda-node-01",
+      "ip": "192.168.1.100",
+      "os": {
+        "name": "Ubuntu",
+        "version": "20.04"
+      }
+    },
+    "source": {
+      "ip": "192.168.1.101",
+      "port": 9092
+    },
+    "destination": {
+      "ip": "192.168.1.102",
+      "port": 27017
+    },
+    "message": "Data ingested into RedPanda stream",
+    "@timestamp": "2024-07-18T12:34:56.789Z"
+  }
+  

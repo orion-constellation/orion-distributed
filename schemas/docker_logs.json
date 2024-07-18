@@ -1,0 +1,31 @@
+{
+    "ecs": {
+      "version": "1.12.0"
+    },
+    "event": {
+      "category": "container",
+      "kind": "event",
+      "type": ["start", "stop", "info", "error"],
+      "action": "container_start"
+    },
+    "container": {
+      "id": "8dfafdbc3a40",
+      "name": "redpanda-container",
+      "image": {
+        "name": "redpanda",
+        "tag": "latest"
+      },
+      "runtime": "docker"
+    },
+    "host": {
+      "hostname": "docker-host-01",
+      "ip": "192.168.1.103",
+      "os": {
+        "name": "Ubuntu",
+        "version": "20.04"
+      }
+    },
+    "message": "Docker container started",
+    "@timestamp": "2024-07-18T12:34:56.789Z"
+  }
+  

@@ -1,0 +1,4 @@
+NEAR-Rewards/
+.env
+__pycache__/
+.venv/

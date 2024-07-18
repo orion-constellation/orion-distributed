@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "near-rewards"
+version = "0.1.0"
+description = "Rewards for participating in the distributed threat hunting network"
+authors = ["orionhunts-ai <orion@oriondefensiveai.com>"]
+license = "Apache 2.0"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pyarrow = "^17.0.0"
+confluent-kafka = "^2.5.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.2.2"
+black = "^24.4.2"
+flake8 = "^7.1.0"
+isort = "^5.13.2"
+pylint = "^3.2.5"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
